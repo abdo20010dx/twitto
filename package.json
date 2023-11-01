@@ -1,5 +1,5 @@
 {
-  "name": "training",
+  "name": "tiwtto",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,6 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^5.14.9",
+    "@mui/material": "^5.14.9",
+    "@mui/styled-engine-sc": "^6.0.0-alpha.2",
+    "@mui/system": "^5.14.14",
+    "@reduxjs/toolkit": "^1.9.5",
     "@types/node": "20.6.1",
     "@types/react": "18.2.21",
     "@types/react-dom": "18.2.7",
@@ -17,6 +24,8 @@
     "next": "13.4.19",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-redux": "^8.1.2",
+    "styled-components": "^6.1.0",
     "typescript": "5.2.2"
   }
 }
