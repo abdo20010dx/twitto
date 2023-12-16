@@ -50,10 +50,10 @@ const styles: Styles = {
     },
     tab: {
         color: 'black',
-        fontWeight: 'bold',
+        fontWeight: 'bold'
     },
     search: {
-        minWidth: "25rem",
+        minWidth: { xs: "50%", s: "50%", md: "50%", lg: "25rem" },
         textAlign: 'center',
 
     },
@@ -63,7 +63,8 @@ const styles: Styles = {
 
     },
     menuFormControl: {
-        width: "25rem",
+        display: "flex",
+        width: "100%",
         paddingBottom: "1rem",
 
     },

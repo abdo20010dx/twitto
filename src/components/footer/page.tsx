@@ -9,11 +9,13 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import { styles } from '@/global/styles';
 import { Container } from '@mui/system';
 
+
 export default function SimpleBottomNavigation() {
     const [value, setValue] = React.useState(0);
 
     return (
         <Box >
+            {/* <BasicPagination></BasicPagination> */}
             <BottomNavigation
                 sx={styles.footer}
                 showLabels

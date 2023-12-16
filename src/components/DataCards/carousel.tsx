@@ -18,7 +18,7 @@ export default function Carousel({ posts }: any) {
     const theme = useTheme();
     const [activeStep, setActiveStep] = React.useState(0);
     const [stop, setStop] = React.useState(false);
-    const maxSteps = steps.length;
+    const maxSteps = steps.length || 1;
 
     React.useEffect(() => {
         const interval = setInterval(() => {

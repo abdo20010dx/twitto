@@ -1,4 +1,5 @@
-export function splitContentInThree(text: string) {
+export function splitContentInThree(text: string = "") {
+    if (!text) return ""
     const arrText = text.split(" ")
     const remainder = arrText.length % 3
     const divisor = Math.floor(arrText.length / 3);

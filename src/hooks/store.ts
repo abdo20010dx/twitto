@@ -1,8 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
 import reducerOfCounter from './slices/counter'
+import reducerOfPosts from './slices/posts'
 export const store = configureStore({
     reducer: {
-        counter: reducerOfCounter
+        counter: reducerOfCounter,
+        posts: reducerOfPosts
     },
 })
 
