@@ -38,6 +38,7 @@ const url = `https://www.msn.com/ar-eg/news/national/%D8%A7%D9%84%D9%85%D8%B1%D9
 
 
 export function DataGrid({ post: thePost, key, lg = 4, height = "250rem", md = 4, sm = 6, xs = 12 }: Readonly<CardParams>) {
+
     const [post, setPost] = useState(thePost)
     const [immotion, setImmotion] = useState(post.like)
 

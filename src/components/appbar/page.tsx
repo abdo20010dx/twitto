@@ -26,6 +26,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import { setCookie, getCookie } from "cookies-next";
 import countriesJson from "../../../countries.json"
+import { config } from '@/global/config';
 const countries: any = countriesJson
 
 
@@ -77,6 +78,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function PrimarySearchAppBar() {
+
     // document.addEventListener("scroll", (e) => {
     //     const totalScroll = document.body.scrollHeight
     //     const currentScroll = window.scrollY
@@ -98,6 +100,11 @@ export default function PrimarySearchAppBar() {
     const isMenuOpen = Boolean(anchorEl);
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
+
+
+
+
+
     const handleProfileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
         setAnchorEl(event.currentTarget);
     };
@@ -116,7 +123,7 @@ export default function PrimarySearchAppBar() {
     };
     const handleKeyDownSearch = (event: React.KeyboardEvent<HTMLElement>) => {
         if (event.key == "Enter") {
-            router.push(`?search=${search}`, { scroll: false })
+            router.push(`/?search=${search}`, { scroll: false })
             setSearch(value => "")
 
 
@@ -135,11 +142,35 @@ export default function PrimarySearchAppBar() {
 
     };
 
-    let theCountry: string = getCookie('country') ?? JSON.stringify({ code: "EG", name: "Egypt" });
+    let theCountry = getCookie('country')
+    try {
 
-    theCountry = JSON.parse(theCountry)
+        theCountry = JSON.parse(theCountry as string)
+    } catch (error) {
+
+    }
 
     const [country, setCountry] = React.useState<any>(theCountry);
+    React.useEffect(() => {
+        async function setCountryData() {
+            console.log("______________setcountry");
+
+            const response: any = await (await fetch(config.hostname, {
+                method: "POST",
+                cache: 'no-cache',
+                headers: { 'Content-Type': 'application/json' },
+            })).json()
+
+            const countryReq = response.country.toLowerCase()
+            console.log(theCountry);
+
+            if (!theCountry) {
+                setCountry({ code: countryReq, name: "" })
+                setCookie("country", { code: countryReq, name: "" })
+            }
+        }
+        setCountryData()
+    }, [])
 
     const [openLang, setOpenLang] = React.useState(false);
 
@@ -569,6 +600,7 @@ export default function PrimarySearchAppBar() {
                             aria-controls="primary-search-account-menu"
                             aria-haspopup="true"
                             color="inherit"
+                            href='/profile'
                         >
                             <AccountCircle />
                         </IconButton>

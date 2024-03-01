@@ -15,22 +15,6 @@ export default function SimpleBottomNavigation() {
 
     return (
         <Box >
-            {/* <BasicPagination></BasicPagination> */}
-            <BottomNavigation
-                sx={styles.footer}
-                showLabels
-                value={value}
-                onChange={(event, newValue) => {
-                    setValue(newValue);
-                }}
-            >
-                <Container sx={styles.footerContent}>
-
-                    <BottomNavigationAction label="Recents" icon={<RestoreIcon />} />
-                    <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} />
-                    <BottomNavigationAction label="Nearby" icon={<LocationOnIcon />} />
-                </Container>
-            </BottomNavigation>
         </Box>
     );
 }

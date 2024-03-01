@@ -1,7 +1,5 @@
 import { headers } from "next/headers";
 import { config } from "./config";
-const ip3country = require("ip3country");
-ip3country.init();
 export async function ssrRequest(query: any) {
 
     const header = headers()

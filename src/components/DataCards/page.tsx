@@ -1,4 +1,3 @@
-
 import * as React from 'react';
 import { CardData } from './Card';
 
@@ -25,6 +24,7 @@ interface Cards {
 }
 
 export function DataCards({ response: { data, meta } }: Readonly<Cards>) {
+
     let start = -1
     let end = 2
 
@@ -60,4 +60,3 @@ export function DataCards({ response: { data, meta } }: Readonly<Cards>) {
     );
 }
 
-export { }

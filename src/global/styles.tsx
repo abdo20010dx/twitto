@@ -21,6 +21,9 @@ interface Styles {
     footerContent: SxProps
     source: SxProps
     newsLogo: CSS.Properties
+    thumbLike: SxProps
+    imageDetais: SxProps
+
 
 }
 let colors = {
@@ -89,6 +92,13 @@ const styles: Styles = {
         width: '2em',
         borderRadius: "50%",
         display: "inline-block"
+
+    },
+    thumbLike: { fontSize: "2rem" },
+    imageDetais: {
+        objectFit: "fill",
+        height: '30em', //em equal number times of current font size
+        width: '70%', //em equal number times of
 
     }
 }
