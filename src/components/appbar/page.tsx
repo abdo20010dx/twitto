@@ -161,7 +161,7 @@ export default function PrimarySearchAppBar() {
                 headers: { 'Content-Type': 'application/json' },
             })).json()
 
-            const countryReq = response.country.toLowerCase()
+            const countryReq = response.country?.toLowerCase() ?? "us"
             console.log(theCountry);
 
             if (!theCountry) {
