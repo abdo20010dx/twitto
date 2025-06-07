@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "prod": "npm run build && npm run start",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
@@ -16,6 +17,7 @@
     "@mui/material": "^5.14.9",
     "@mui/styled-engine-sc": "^6.0.0-alpha.2",
     "@mui/system": "^5.14.14",
+    "@react-oauth/google": "^0.12.1",
     "@reduxjs/toolkit": "^1.9.5",
     "@types/geoip-lite": "^1.4.4",
     "@types/node": "20.6.1",
@@ -26,11 +28,13 @@
     "eslint-config-next": "13.4.19",
     "i": "^0.3.7",
     "ip3country": "^5.0.0",
-    "next": "13.4.19",
+    "jwt-decode": "^4.0.0",
+    "next": "^14.2.5",
     "npm": "^10.2.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-redux": "^8.1.2",
+    "react-share": "^5.1.0",
     "styled-components": "^6.1.0",
     "typescript": "5.2.2"
   }

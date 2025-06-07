@@ -23,6 +23,7 @@ import { CardData } from './Card';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { config } from '@/global/config';
+import ShareButton from '../share/shareButton';
 
 const newsImage = `https://img.freepik.com/premium-vector/breaking-news-template-with-3d-red-blue-badge-breaking-news-text-dark-blue-with-earth-world-map-background_34645-1113.jpg`
 interface CardParams {
@@ -108,9 +109,10 @@ export function DataGrid({ post: thePost, key, lg = 4, height = "250rem", md = 4
                         <Typography >{post.likes}</Typography>
 
                     </IconButton>
-                    <IconButton aria-label="share">
+                    <ShareButton postId={post.id} />
+                    {/* <IconButton aria-label="share">
                         <ShareIcon />
-                    </IconButton>
+                    </IconButton> */}
                 </CardActions>
 
             </Card>

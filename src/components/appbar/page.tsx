@@ -27,6 +27,10 @@ import InboxIcon from '@mui/icons-material/MoveToInbox';
 import { setCookie, getCookie } from "cookies-next";
 import countriesJson from "../../../countries.json"
 import { config } from '@/global/config';
+import { GoogleLogin, GoogleOAuthProvider } from '@react-oauth/google';
+import CustomGoogleLogin from './AutoLogin';
+import { Facebook, WhatsApp, Twitter, Instagram } from '@mui/icons-material';
+
 const countries: any = countriesJson
 
 
@@ -240,20 +244,69 @@ export default function PrimarySearchAppBar() {
     );
 
     const profileBar = () => (
-        <Search sx={styles.search}>
-            <SearchIconWrapper>
-                <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-                placeholder="Search…"
-                inputProps={{ 'aria-label': 'search' }}
-                value={search}
-                onChange={handleSearchChange}
-                onKeyDown={handleKeyDownSearch}
-            />
-        </Search>
+        <>
+            <Search sx={styles.search}>
+                <SearchIconWrapper>
+                    <SearchIcon />
+                </SearchIconWrapper>
+                <StyledInputBase
+                    placeholder="Search…"
+                    inputProps={{ 'aria-label': 'search' }}
+                    value={search}
+                    onChange={handleSearchChange}
+                    onKeyDown={handleKeyDownSearch}
+                />
+            </Search>
+            <Box sx={{ display: 'flex', ml: 'auto' }}>
+                <SocialMediaIcons />
+            </Box>
+
+        </>
+
 
     )
+
+    const SocialMediaIcons = () => (
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+            <IconButton
+                size="large"
+                aria-label="Follow Us on Facebook"
+                color="inherit"
+                href="https://www.facebook.com"
+                target="_blank"
+            >
+                <Facebook />
+            </IconButton>
+            <IconButton
+                size="large"
+                aria-label="Follow Us on WhatsApp"
+                color="inherit"
+                href="https://wa.me"
+                target="_blank"
+            >
+                <WhatsApp />
+            </IconButton>
+            {/* <IconButton
+                size="large"
+                aria-label="Follow Us on Twitter"
+                color="inherit"
+                href="https://twitter.com"
+                target="_blank"
+            >
+                <Twitter />
+            </IconButton>
+            <IconButton
+                size="large"
+                aria-label="Follow Us on Instagram"
+                color="inherit"
+                href="https://www.instagram.com"
+                target="_blank"
+            >
+                <Instagram />
+            </IconButton> */}
+        </Box>
+    );
+
 
     const menuId = 'primary-search-account-menu';
     const renderMenu = (
@@ -541,6 +594,11 @@ export default function PrimarySearchAppBar() {
 
     return (
         <Box sx={{ flexGrow: 1 }}>
+            {/* <GoogleOAuthProvider clientId={config.google_client_id}>
+                <CustomGoogleLogin />
+            </GoogleOAuthProvider> */}
+
+
             <AppBar position="static">
                 <Toolbar>
                     <IconButton
@@ -571,6 +629,8 @@ export default function PrimarySearchAppBar() {
 
                         {profileBar()}
                     </Box>
+
+
                     <Box sx={{ flexGrow: 1 }} />
 
                     <Box sx={{ display: { xs: 'flex', md: 'flex' } }}>
@@ -594,7 +654,7 @@ export default function PrimarySearchAppBar() {
                         >
                             <PublicIcon />
                         </IconButton>
-                        <IconButton
+                        {/* <IconButton
                             size="large"
                             aria-label="account of current user"
                             aria-controls="primary-search-account-menu"
@@ -603,7 +663,7 @@ export default function PrimarySearchAppBar() {
                             href='/profile'
                         >
                             <AccountCircle />
-                        </IconButton>
+                        </IconButton> */}
 
                     </Box>
 
@@ -619,6 +679,7 @@ export default function PrimarySearchAppBar() {
                             <MoreIcon />
                         </IconButton>
                     </Box> */}
+
                 </Toolbar>
                 <Toolbar sx={{ display: { xs: "none", sm: "none", md: "block", lg: "block", xl: "block" } }}>
                     {tabs()}

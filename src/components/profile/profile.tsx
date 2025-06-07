@@ -17,6 +17,7 @@ import { Alert, AlertTitle, Stack } from '@mui/material';
 import { deepOrange } from '@mui/material/colors';
 import { config } from '@/global/config';
 import { useRouter } from 'next/navigation';
+import { User } from '@/global/dtos/user';
 
 function Copyright(props: any) {
     return (
@@ -36,7 +37,7 @@ const defaultTheme = createTheme();
 
 export default function SignUp({ user: data }: any) {
     const router = useRouter()
-    const [user, setUser] = React.useState(data)
+    const [user, setUser] = React.useState<User>(data)
     const [alert, setAlert] = React.useState(<></>)
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -44,10 +45,9 @@ export default function SignUp({ user: data }: any) {
         const body = JSON.stringify(
 
             {
-                fname: data.get("firstName"),
-                lname: data.get("lastName"),
+                name: data.get("name"),
                 email: data.get('email'),
-                password: data.get('password'),
+                // password: data.get('password'),
             }
         )
         try {
@@ -69,7 +69,7 @@ export default function SignUp({ user: data }: any) {
             setAlert(
                 <Alert severity="error">
                     <AlertTitle>FAILED</AlertTitle>
-                    <strong>Profile didn't upate</strong>
+                    {/* <strong>Profile didn't upate</strong> */}
                 </Alert>
             )
 
@@ -90,24 +90,24 @@ export default function SignUp({ user: data }: any) {
                 <Stack direction="row" spacing={2}>
                     <Avatar
                         sx={{ width: 100, height: 100, textTransform: "capitalize", fontSize: 35 }}
-                    >{user.fname}</Avatar>
+                    >{user.name}</Avatar>
                 </Stack>
                 <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
                     <Grid container spacing={2}>
-                        <Grid item xs={12} sm={6}>
+                        <Grid item xs={12}>
                             <TextField
-                                variant='standard'
+                                // variant='standard'
                                 autoComplete="given-name"
-                                name="firstName"
+                                name="name"
                                 required
                                 fullWidth
-                                id="firstName"
-                                label="First Name"
+                                id="name"
+                                label="name"
                                 autoFocus
-                                defaultValue={user.fname}
+                                defaultValue={user.name}
                             />
                         </Grid>
-                        <Grid item xs={12} sm={6}>
+                        {/* <Grid item xs={12} sm={6}>
                             <TextField
                                 variant='standard'
                                 required
@@ -119,7 +119,7 @@ export default function SignUp({ user: data }: any) {
                                 defaultValue={user.lname}
 
                             />
-                        </Grid>
+                        </Grid> */}
                         <Grid item xs={12}>
                             <TextField
                                 required
@@ -131,7 +131,7 @@ export default function SignUp({ user: data }: any) {
                                 defaultValue={user.email}
                             />
                         </Grid>
-                        <Grid item xs={12}>
+                        {/* <Grid item xs={12}>
                             <TextField
                                 required
                                 fullWidth
@@ -142,7 +142,7 @@ export default function SignUp({ user: data }: any) {
                                 autoComplete="new-password"
                                 defaultValue={user.password}
                             />
-                        </Grid>
+                        </Grid> */}
                         <Grid item xs={12}>
                             {/* <FormControlLabel
                                 control={<Checkbox value="allowExtraEmails" color="primary" />}

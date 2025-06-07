@@ -84,6 +84,7 @@ const styles: Styles = {
     },
     source: {
         display: "inline-block",
+        fontSize: { xs: "1.5rem", md: "2rem" }
 
     },
     newsLogo: {
@@ -95,12 +96,7 @@ const styles: Styles = {
 
     },
     thumbLike: { fontSize: "2rem" },
-    imageDetais: {
-        objectFit: "fill",
-        height: '30em', //em equal number times of current font size
-        width: '70%', //em equal number times of
-
-    }
+    imageDetais: { height: { xs: 200, md: 400 }, objectFit: "cover" }
 }
 
 export { styles }
