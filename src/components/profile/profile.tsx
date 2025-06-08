@@ -69,7 +69,6 @@ export default function SignUp({ user: data }: any) {
             setAlert(
                 <Alert severity="error">
                     <AlertTitle>FAILED</AlertTitle>
-                    {/* <strong>Profile didn't upate</strong> */}
                 </Alert>
             )
 
